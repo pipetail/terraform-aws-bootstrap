@@ -21,8 +21,7 @@ module "terraform_state_bucket" {
 
   use_account_alias_prefix = false
   bucket_key_enabled       = var.bucket_key_enabled
-  kms_master_key_id        = var.kms_master_key_id
-  sse_algorithm            = var.kms_master_key_id != null ? "aws:kms" : null
+  sse_algorithm            = "AES256"
 
   enable_s3_public_access_block = var.enable_s3_public_access_block
   tags                          = var.state_bucket_tags
